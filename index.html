@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบบันทึกรายรับ-รายจ่าย</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 ระบบบันทึกรายรับ-รายจ่าย</h1>
+            <div class="summary">
+                <div class="summary-item income">
+                    <span>รายรับ</span>
+                    <p id="totalIncome">0 บาท</p>
+                </div>
+                <div class="summary-item expense">
+                    <span>รายจ่าย</span>
+                    <p id="totalExpense">0 บาท</p>
+                </div>
+                <div class="summary-item balance">
+                    <span>คงเหลือ</span>
+                    <p id="totalBalance">0 บาท</p>
+                </div>
+            </div>
+        </div>
+
+        <form id="expenseForm" class="expense-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">วันที่:</label>
+                    <input type="date" id="date" name="date" required>
+                    <span class="error" id="dateError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="type">ประเภท:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="income" id="income" required>
+                            <span>รายรับ</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="expense" id="expense" required>
+                            <span>รายจ่าย</span>
+                        </label>
+                    </div>
+                    <span class="error" id="typeError"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="category">หมวดหมู่:</label>
+                    <select id="category" name="category" required>
+                        <option value="">-- เลือกหมวดหมู่ --</option>
+                        <option value="salary">เงินเดือน</option>
+                        <option value="bonus">โบนัส</option>
+                        <option value="investment">เงินลงทุน</option>
+                        <option value="food">อาหาร</option>
+                        <option value="transport">ค่าเดินทาง</option>
+                        <option value="utilities">ค่าสาธารณูปโภค</option>
+                        <option value="entertainment">ความบันเทิง</option>
+                        <option value="medical">สุขภาพ</option>
+                        <option value="education">การศึกษา</option>
+                        <option value="shopping">ช้อปปิ้ง</option>
+                        <option value="other">อื่น ๆ</option>
+                    </select>
+                    <span class="error" id="categoryError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="amount">จำนวนเงิน:</label>
+                    <input type="number" id="amount" name="amount" placeholder="0.00" step="0.01" required>
+                    <span class="error" id="amountError"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">หมายเหตุ:</label>
+                <textarea id="description" name="description" placeholder="บันทึกรายละเอียด" rows="3"></textarea>
+                <span class="error" id="descriptionError"></span>
+            </div>
+
+            <button type="submit" class="btn-submit">บันทึกข้อมูล</button>
+        </form>
+
+        <div class="records-section">
+            <h2>📋 รายการบันทึก</h2>
+            <div class="filters">
+                <input type="month" id="monthFilter" class="filter-input" placeholder="เลือกเดือน">
+                <select id="typeFilter" class="filter-input">
+                    <option value="">ทั้งหมด</option>
+                    <option value="income">รายรับ</option>
+                    <option value="expense">รายจ่าย</option>
+                </select>
+            </div>
+            <div class="table-container">
+                <table id="recordsTable">
+                    <thead>
+                        <tr>
+                            <th>วันที่</th>
+                            <th>ประเภท</th>
+                            <th>หมวดหมู่</th>
+                            <th>จำนวนเงิน</th>
+                            <th>หมายเหตุ</th>
+                            <th>ลบ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div id="emptyMessage" class="empty-message">ยังไม่มีรายการบันทึก</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
