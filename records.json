@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1771834930094,
+    "date": "2026-02-23",
+    "type": "income",
+    "category": "salary",
+    "amount": 100,
+    "description": "",
+    "createdAt": "2026-02-23T08:22:10.094Z"
+  },
+  {
+    "id": 1771835029974,
+    "date": "2026-02-23",
+    "type": "income",
+    "category": "bonus",
+    "amount": 100,
+    "description": "",
+    "createdAt": "2026-02-23T08:23:49.974Z"
+  },
+  {
+    "id": 1771835039358,
+    "date": "2026-02-23",
+    "type": "expense",
+    "category": "food",
+    "amount": 50,
+    "description": "",
+    "createdAt": "2026-02-23T08:23:59.358Z"
+  }
+]
